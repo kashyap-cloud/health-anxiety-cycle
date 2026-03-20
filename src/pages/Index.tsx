@@ -1,16 +1,21 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { useState } from "react";
+import WelcomeScreen from "@/components/WelcomeScreen";
+import CycleScreen from "@/components/CycleScreen";
+import BreakCycleScreen from "@/components/BreakCycleScreen";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
+  const [screen, setScreen] = useState(0);
+
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
+    <div className="flex items-center justify-center min-h-screen bg-muted">
+      <div className="w-[375px] min-h-screen max-h-screen overflow-hidden shadow-2xl rounded-3xl relative"
+           style={{ maxHeight: '100dvh' }}>
+        {screen === 0 && <WelcomeScreen onNext={() => setScreen(1)} />}
+        {screen === 1 && <CycleScreen onNext={() => setScreen(2)} />}
+        {screen === 2 && <BreakCycleScreen />}
+      </div>
     </div>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
