@@ -46,7 +46,7 @@ const WelcomeScreen = ({ onNext }: WelcomeScreenProps) => {
 
       <button
         onClick={onNext}
-        className="w-full py-4 rounded-full text-primary-foreground font-bold text-lg shadow-lg active:scale-[0.98] transition-transform"
+        className="w-full py-4 rounded-full text-primary-foreground font-bold text-lg shadow-lg"
         style={{ background: 'linear-gradient(135deg, hsl(250 40% 55%), hsl(260 45% 60%))' }}
       >
         Show Me →
