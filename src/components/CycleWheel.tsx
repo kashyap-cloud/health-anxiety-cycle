@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const NODES = [
-  { emoji: "⚡", label: "Trigger", desc: "A headache. An article. A thought." },
-  { emoji: "😰", label: "Anxiety Spikes", desc: "What if something is wrong with me?" },
-  { emoji: "📱", label: "You Check", desc: "Google. Doctor. Ask someone." },
-  { emoji: "😮‍💨", label: "Brief Relief", desc: "Okay… I'm probably fine." },
-  { emoji: "🔄", label: "Doubt Returns", desc: "But what if they're wrong?" },
+  { key: 'trigger', emoji: "⚡" },
+  { key: 'anxiety', emoji: "😰" },
+  { key: 'check', emoji: "📱" },
+  { key: 'relief', emoji: "😮‍💨" },
+  { key: 'doubt', emoji: "🔄" },
 ];
 
 // Positions around a circle (top, then clockwise)
@@ -25,6 +26,7 @@ interface CycleWheelProps {
 }
 
 const CycleWheel = ({ animated = false, interactive = false, activeNode: externalActive, onNodeTap }: CycleWheelProps) => {
+  const { t } = useTranslation();
   const [activeIndex, setActiveIndex] = useState(-1);
   const [showRestart, setShowRestart] = useState(false);
 
@@ -69,7 +71,7 @@ const CycleWheel = ({ animated = false, interactive = false, activeNode: externa
       clearInterval(timer);
       clearTimeout(restartTimer);
     };
-  }, [animated]);
+  }, [animated, animated]);
 
   const currentActive = interactive ? externalActive : activeIndex;
 
@@ -146,7 +148,7 @@ const CycleWheel = ({ animated = false, interactive = false, activeNode: externa
                 fontWeight="600"
                 fill="hsl(240 20% 30%)"
               >
-                {node.label}
+                {t(`nodes.${node.key}.label`)}
               </text>
             </g>
           );
@@ -157,16 +159,16 @@ const CycleWheel = ({ animated = false, interactive = false, activeNode: externa
       {animated && currentActive !== null && currentActive !== undefined && currentActive >= 0 && (
         <p
           key={currentActive}
-          className="text-center text-sm text-muted-foreground italic mt-2 animate-fade-up"
+          className="text-center text-sm text-muted-foreground italic mt-2 animate-fade-up px-6"
         >
-          {NODES[currentActive].emoji} "{NODES[currentActive].desc}"
+          {NODES[currentActive].emoji} "{t(`nodes.${NODES[currentActive].key}.desc`)}"
         </p>
       )}
 
       {/* Restart label */}
       {animated && showRestart && (
         <p className="text-center text-xs text-calm-purple mt-1 animate-fade-up">
-          ↩ And it starts again...
+          {t('cycle.restart')}
         </p>
       )}
     </div>
