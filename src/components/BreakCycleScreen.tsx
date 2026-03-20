@@ -9,7 +9,7 @@ const TIPS = [
   "Don't engage with the doubt. Say — 'There's that doubt again.' Then let it pass like a cloud without following it.",
 ];
 
-const BreakCycleScreen = () => {
+const BreakCycleScreen = ({ onComplete }: { onComplete: () => void }) => {
   const [activeNode, setActiveNode] = useState<number | null>(null);
   const [tappedNodes, setTappedNodes] = useState<Set<number>>(new Set());
 
@@ -68,6 +68,7 @@ const BreakCycleScreen = () => {
 
       {allTapped && (
         <button
+          onClick={onComplete}
           className="w-full py-4 rounded-full text-primary-foreground font-bold text-lg shadow-lg active:scale-[0.98] transition-transform mt-4 animate-fade-up"
           style={{ background: 'linear-gradient(135deg, hsl(250 40% 55%), hsl(260 45% 60%))' }}
         >
