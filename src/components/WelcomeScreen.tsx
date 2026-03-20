@@ -11,8 +11,8 @@ const PersonIllustration = () => (
     {/* Smile */}
     <path d="M 95 90 Q 100 95 105 90" stroke="hsl(240 20% 30%)" strokeWidth="1.5" fill="none" strokeLinecap="round" />
 
-    {/* Thought bubble with pulse */}
-    <g className="animate-thought-pulse" style={{ transformOrigin: '155px 40px' }}>
+    {/* Thought bubble - static */}
+    <g>
       <ellipse cx="155" cy="40" rx="30" ry="22" fill="hsl(250 50% 95%)" stroke="hsl(250 30% 82%)" strokeWidth="1.5" />
       <circle cx="125" cy="58" r="5" fill="hsl(250 50% 95%)" stroke="hsl(250 30% 82%)" strokeWidth="1" />
       <circle cx="118" cy="67" r="3" fill="hsl(250 50% 95%)" stroke="hsl(250 30% 82%)" strokeWidth="1" />
