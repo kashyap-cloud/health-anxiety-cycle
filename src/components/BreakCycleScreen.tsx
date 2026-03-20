@@ -9,7 +9,7 @@ const TIPS = [
   "Don't engage with the doubt. Say — 'There's that doubt again.' Then let it pass like a cloud without following it.",
 ];
 
-const BreakCycleScreen = () => {
+const BreakCycleScreen = ({ onComplete }: { onComplete: () => void }) => {
   const [activeNode, setActiveNode] = useState<number | null>(null);
   const [tappedNodes, setTappedNodes] = useState<Set<number>>(new Set());
 
