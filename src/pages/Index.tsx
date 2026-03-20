@@ -8,7 +8,7 @@ const Index = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-muted">
-      <div className="w-[375px] min-h-screen max-h-screen overflow-hidden shadow-2xl rounded-3xl relative"
+      <div className="w-[375px] min-h-screen max-h-screen overflow-y-auto shadow-2xl rounded-3xl relative"
            style={{ maxHeight: '100dvh' }}>
         {screen === 0 && <WelcomeScreen onNext={() => setScreen(1)} />}
         {screen === 1 && <CycleScreen onNext={() => setScreen(2)} />}

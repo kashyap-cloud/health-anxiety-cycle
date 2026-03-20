@@ -27,12 +27,8 @@ interface WelcomeScreenProps {
 
 const WelcomeScreen = ({ onNext }: WelcomeScreenProps) => {
   return (
-    <div className="flex flex-col min-h-screen px-6 py-8 text-center relative"
+    <div className="flex flex-col min-h-screen px-6 py-8 text-center"
          style={{ background: 'linear-gradient(160deg, hsl(230 30% 96%), hsl(250 35% 94%), hsl(220 40% 95%))' }}>
-      {/* Back button */}
-      <button className="absolute top-6 left-5 w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-foreground/70 text-lg">
-        ←
-      </button>
 
       <div className="flex-1 flex flex-col items-center justify-center gap-6">
         <h1 className="text-2xl font-bold text-foreground">
